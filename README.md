@@ -3,8 +3,11 @@ Attempt to submit an APM Trace to Datadog without running the datadog agent daem
 https://docs.datadoghq.com/api/?lang=python#tracing only describes the tracer->datadog-agent api,
 without describing how the datadog-agent submits traces to `trace.agent.datadoghq.com`. 
 
-It imports the datadog-agent go packages as a library,
+But the datadog-agent obviously knows how to submit APM traces.
+This application imports the datadog-agent go packages as a library,
 using the internals for data serialization and submission.
+
+It submits exactly one trace with two hardcoded spans and exits.
 
 All configuration knobs (environment variables and `datadog.yaml`)
 are expected to have the same behaviour as in the datadog-agent daemon.
